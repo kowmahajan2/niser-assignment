@@ -5,10 +5,11 @@ using namespace std;
 class node
 {
 	public:
-	//fairly obvious node class with integer data and a next pointer
+	//fairly obvious node class with integer data and a next, previous pointers
 	int data;
 	node* next, *prev;
 		node(int a)
+			//node constructor
 		{
 			data = a;
 			next = NULL;
@@ -83,7 +84,7 @@ class list
 		void Delete()
 		{
 			/*function for deleting node at tail end
-			fairly similar to insert function but this time we have to start from head*/
+			since we can go back in the list we can do this quite easily*/
 			node* slider = head;
 			if(head == tail)
 			{
