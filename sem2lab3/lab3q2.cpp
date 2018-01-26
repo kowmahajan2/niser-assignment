@@ -5,7 +5,7 @@ using namespace std;
 class node
 {
 	public:
-	//fairly obvious node class with integer data and a next pointer
+	//fairly obvious node class with integer data and a next, previous pointers
 	int data;
 	node* next, *prev;
 		node(int a)
@@ -24,7 +24,7 @@ class list
 	public:
 		void insert(int a)
 		{
-		/*function for adding node at tail end
+		/*function for adding node just behind head
 		with temp pointer holding the new node*/
 			node*temp = new node(a);
 			if(head == NULL)
@@ -44,7 +44,7 @@ class list
 		
 		void InsertAt(int a, int pos)
 		{
-			/*function to add node at given position
+			/*function to add node at given position, it stops once head is reached
 			slider pointer is used to find the place for insertion*/
 			node* temp = new node(a);
 			int counter,flag = 0;
@@ -78,8 +78,7 @@ class list
 		
 		void Delete()
 		{
-			/*function for deleting node at tail end
-			fairly similar to insert function but this time we have to start from head*/
+			/*function for deleting node at tail end*/
 			node* slider = head;
 			if(head != NULL)
 			{
