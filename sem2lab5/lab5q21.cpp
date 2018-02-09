@@ -90,43 +90,8 @@ void copyarray(int a[], int b[], int c[], int k, int size)
 class quicksort
 {
 	public:
-		void arrsort(int a[],int lpos, int rpos)
-		{
-			cout<<"hey";
-			int temp;
-			int flagi = 0, flagj = 0;
-			int i = lpos, j = rpos;
-			int pivot = (lpos + rpos)/2;
-			if(lpos < rpos)
-			{
-			while(i<j)
-			{
-				if(a[i]>=a[pivot])
-				{
-					flagi = 1;
-				}else{
-					i++;
-				}
-				if(a[j]<a[pivot])
-				{
-					flagj = 1;
-				}else{
-					j--;
-				}
-				if(flagi == 1 && flagj == 1)
-				{
-					temp = a[i];
-					a[i] = a[j];
-					a[j] = temp;
-					i++;
-					j--;
-				}
-			}
-			arrsort(a,lpos,i);
-			arrsort(a,i+1,rpos);
-		}
-		}
-	/*void arrsort(int a[],int size)
+
+	void arrsort(int a[],int size)
 	{
 		if(size > 1)
 		{
@@ -160,7 +125,7 @@ class quicksort
 			arrsort(c,j);
 			copyarray(a,b,c,k,size);
 		}
-	}*/
+	}
 	
 	void listsort(node * node1,int n)
 	{
@@ -185,16 +150,16 @@ int main()
 	stacklen = s1.countItems();
 	sort1.listsort(s1.top,stacklen);
 	s1.display();*/
-	int arr[]={1,3,2,4};
+	int arr[]={25,42,45,54,78,55};
 	int size;
-	size = sizeof(arr);
+	size = sizeof(arr)/4;
 	cout<<size/4;
 	for(int i = 0; i < size; i++)
 	{
 		cout<<arr[i]<<" ";
 	}
 	cout<<"\n";
-	sort1.arrsort(arr,0,size-1);
+	sort1.arrsort(arr,size);
 	cout<<"hey";
 	for(int i = 0; i < size; i++)
 	{
@@ -203,4 +168,3 @@ int main()
 	cout<<"\n";
 	return 0;
 }
-
