@@ -85,7 +85,7 @@ class bubblesort
 		flag = 0;
 		for(;j>0&&flag == 0;j--)
 		{
-			flag = 1;
+			flag = 1;			//flag for checking if array is sorted
 			for(i=1;i<=j;i++)
 			{
 				if(a[i]>a[i-1]) 	//comparing two elements
@@ -101,15 +101,13 @@ class bubblesort
 	
 	void listsort(node * node1,int n)	//function for sorting lists
 	{
-		cout<<"hey";
 		node* slider = node1;
 		int j,flag,i,temp;
 		j=n;
-		flag = 0;
+		flag = 0;		//flag for checking if link is sorted
 		while(flag == 0)
 		{
 			slider = node1;
-			cout<<"hey";
 			flag = 1;
 			for(i = 0;i < j && slider->next != NULL;i++)
 			{
