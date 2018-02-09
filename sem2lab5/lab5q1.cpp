@@ -78,7 +78,7 @@ class stack
 class bubblesort
 {
 	public:
-	void arrsort(int a[],int n)
+	void arrsort(int a[],int n)		//function for sorting an array
 	{
 		int j,flag,i,temp;
 		j=n;
@@ -88,7 +88,7 @@ class bubblesort
 			flag = 1;
 			for(i=1;i<=j;i++)
 			{
-				if(a[i]>a[i-1])
+				if(a[i]>a[i-1]) 	//comparing two elements
 				{
 					temp = a[i];
 					a[i] = a[i-1];
@@ -99,7 +99,7 @@ class bubblesort
 		}
 	}
 	
-	void listsort(node * node1,int n)
+	void listsort(node * node1,int n)	//function for sorting lists
 	{
 		cout<<"hey";
 		node* slider = node1;
@@ -147,13 +147,3 @@ int main()
 	s1.display();
 	return 0;
 }
-/*int main()
-{
-	double x = 2;
-	for(int i = 1;i<2;i++)
-	{
-		x= 0.5*(x + (2/x));
-		cout<<x<<"\n";
-	}
-	return 0;
-}*/
