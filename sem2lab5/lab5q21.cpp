@@ -76,6 +76,7 @@ class stack
 };
 
 void copyarray(int a[], int b[], int c[], int k, int size)
+	//function for putting to arrays in one
 {
 	for(int i = 0; i<k;i++)
 	{
@@ -99,12 +100,12 @@ class quicksort
 			int b[100], c[100];
 			int pivot;
 			int k = 0,j = 0;
-			pivot = size/2;
+			pivot = size/2;		//pivot definition
 			for(int i = 0; i<size; i++)
 			{
 				if(a[i] == a[pivot])
 				{
-					b[k] = a[i];
+					b[k] = a[i];		//creating two arrays with lesser than pivot and greater than pivot elements
 					k++;
 				}
 			}
@@ -122,7 +123,7 @@ class quicksort
 			}
 			
 			arrsort(b,k);
-			arrsort(c,j);
+			arrsort(c,j);				//recursion and joing of returned sorted arrays
 			copyarray(a,b,c,k,size);
 		}
 	}
