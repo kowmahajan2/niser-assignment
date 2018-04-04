@@ -16,6 +16,44 @@ node *parent, *left, *right;
 
 };
 
+void condprint(int data, int low, int high)
+{
+	if(data>=low && data <= high)
+	{
+		cout<<data;
+	}
+}
+
+int inorder(node *a, int low, int high)
+{
+	int n;
+	if(a == NULL)
+	{
+		return 0;
+	}
+	if(a->left == NULL && a->right == NULL)
+	{
+		condprint(a->data, low, high);
+		//cout<<a->data<<" ";
+		return 1;
+	}
+	if(a->left != NULL)
+	{
+		inorder(a->left, low, high);
+	}
+	if(a->right != NULL)
+	{
+		condprint(a->data, low, high);
+		//cout<<a->data<<" ";
+		inorder(a->right, low, high);
+	}else
+	{
+		condprint(a->data, low, high);
+		//cout<<a->data<<" ";
+	}
+	return 1;
+}
+
 int inorder(node *a)
 {
 	int n;
@@ -88,6 +126,27 @@ node *biggest(node *root)
 	return slider;
 }
 
+node *replacement(node *root)
+{
+	node *slider = root;
+	if(root->left != NULL)
+	{
+		slider = slider->left;
+		while(slider->right != NULL)
+		{
+			slider = slider->right;
+		}
+	}else
+	{
+		slider = slider->right;
+		while(slider->left != NULL)
+		{
+			slider = slider->left;
+		}
+	}
+	return slider;
+}
+
 class tree
 {
 	public:           
@@ -144,6 +203,11 @@ class tree
 		int a = inorder(root);
 	}
 
+	void display(node* ancestor, int low, int high)
+	{
+		int a = inorder(ancestor, low, high);
+	}
+
 	node *search(int key)
 	{
 		node *result;
@@ -165,6 +229,7 @@ class tree
 		keyn = search(key);
 		if(keyn != NULL)
 		{
+			replace = replacement(keyn);
 			if(keyn->right != NULL)
 			{	
 				replace = smallest(keyn->right);
@@ -231,6 +296,29 @@ class tree
 			} 	
 		}
 	}
+
+	void rangeprint(int low, int high)
+	{
+		node *ancestor = root;
+		for(;!(ancestor->data >= low && ancestor->data <= high) && ancestor != NULL;)
+		{
+			if(ancestor->data < low)
+			{
+				ancestor = ancestor->left;
+			}else
+			{
+				ancestor = ancestor->right;
+			}
+		}
+		if(ancestor == NULL)
+		{
+			cout<<"failed";
+			return;
+		}else
+		{
+			display(ancestor, low, high);
+		}
+	}
 };
 
 
@@ -255,5 +343,7 @@ t1.display();
 t1.search(59);
 t1.deletion(36);
 t1.display();
+cout<<endl;
+t1.rangeprint(20,44);
 return 0;
 }
